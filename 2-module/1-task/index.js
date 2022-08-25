@@ -6,10 +6,17 @@ function sumSalary(salaries) {
   for (let key in salaries) {
     let isSalary = typeof salaries[key] === "number";
 
-    if (isSalary) {
-      sumOfSalaries += salaries[key];
-    }
-  }
+    let sumOfSalaries = 0;
 
-  return sumOfSalaries;
+    for (let key in salaries) {
+      let isSalary =
+        typeof salaries[key] === "number" && Number.isFinite(salaries[key]);
+
+      if (isSalary) {
+        sumOfSalaries += salaries[key];
+      }
+    }
+
+    return sumOfSalaries;
+  }
 }
