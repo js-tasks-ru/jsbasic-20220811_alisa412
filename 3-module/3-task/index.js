@@ -9,6 +9,10 @@ function camelize(str) {
     return item[0].toUpperCase() + item.slice(1);
   });
   return (bla = bla.join(""));
+
+  if (!str) {
+    return str;
+  }
 }
 
 /*
