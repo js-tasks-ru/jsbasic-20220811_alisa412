@@ -1,14 +1,24 @@
 function getMinMax(str) {
-  arrNumbers = [];
-  arrStr = str.split(" ");
-  arrStr.map((item, index) => {
-    if (isNaN(parseInt(arrStr[index])) !== true) {
-      arrNumbers.push(arrStr[index]);
-    }
-  });
+  // ваш код...
+  let strings = str.split(' ');
 
-  let min = Math.min.apply(null, arrNumbers);
-  let max = Math.max.apply(null, arrNumbers);
+  let nums = strings
+    .filter((value) => isFinite(value)) // Отфильтровывает не числовые значения
+    .map((value) => +value) // Преобразовывает элементы к числовому типу ("-38" => -38)
+
+  // Сортирует массив по возрастанию, чтобы первый элемент был минимальный, а последний - максимальный.
+  nums.sort((a, b) => {
+    if (a > b) { return 1; }
+
+    if (a < b) { return -1; }
+
+    return 0;
+  })
+
+  let lastElementIndex = nums.length - 1; // Индекс последнего элемента на единицу меньше, чем длина массива
+
+  let max = nums[lastElementIndex];
+  let min = nums[0];
 
   return { min, max };
 }
