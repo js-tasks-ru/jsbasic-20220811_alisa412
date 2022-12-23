@@ -1,4 +1,5 @@
 function getMinMax(str) {
+  // ваш код...
   let strings = str.split(' ');
 
   let nums = strings
@@ -21,3 +22,5 @@ function getMinMax(str) {
 
   return { min, max };
 }
+
+console.log(getMinMax("hi 33 223 hi"));
